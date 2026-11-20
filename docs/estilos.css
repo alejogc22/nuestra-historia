@@ -1,0 +1,187 @@
+/* CONFIGURACIÓN GENERAL Y FONDO ROMÁNTICO */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fff0f3 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #75445a;
+    text-align: center;
+    position: relative; /* Necesario para que los corazones absolutos se midan desde aquí */
+    overflow-x: hidden;
+}
+
+/* CONTENEDOR DE LA PRIMERA PANTALLA */
+.portada {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Altura exacta de la ventana */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Corta de raíz cualquier elemento que intente salir */
+}
+
+
+/* TARJETA PRINCIPAL (ESTILO CARTA ELEGANTE) */
+.tarjeta-inicio {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 30px;
+    max-width: 450px;
+    width: 100%;
+    /* Añadimos un brillo romántico alrededor */
+    box-shadow: 0 20px 40px rgba(255, 117, 140, 0.35), 0 0 50px rgba(255, 255, 255, 0.6);
+    border: 2px solid #ffd1dc;
+    position: relative;
+    animation: aparecerTexto 1s ease;
+    z-index: 5;
+}
+
+
+/* CONTENEDOR DE BOTONES */
+.botones-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+/* ESTILO DE LOS BOTONES ROMÁNTICOS */
+.btn-romantico {
+    display: inline-block;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50px;
+    box-shadow: 0 6px 20px rgba(255, 117, 140, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-romantico.secundario {
+    background: linear-gradient(135deg, #b64d79 0%, #d14f83 100%);
+    box-shadow: 0 6px 20px rgba(182, 77, 121, 0.4);
+}
+
+.btn-romantico:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 117, 140, 0.6);
+}
+
+/* SECCIÓN INFERIOR DENTRO DE LA TARJETA */
+.pie-carta h2 {
+    color: #c94f7b;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.pie-carta p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #75445a;
+    margin: 0;
+}
+
+
+/* ==========================================
+   ESTILOS PARA LA SECCIÓN DE TARJETAS DE RAZONES
+   ================================---------- */
+
+.seccion-razones {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.seccion-razones h2 {
+    color: #b64d79;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.subtitulo-razones {
+    color: #8c536a;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+/* CUADRÍCULA DE TARJETAS */
+.razones-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px;
+}
+
+/* DISEÑO DE CADA TARJETA INTERACTIVA */
+.tarjeta-razon {
+    background: #ffffff;
+    border: 2px solid #ffd1dc;
+    border-radius: 20px;
+    padding: 25px 15px;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(214, 90, 140, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    user-select: none;
+    position: relative;
+}
+
+.tarjeta-razon:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 117, 140, 0.25);
+    border-color: #ff758c;
+}
+
+/* TEXTO DEL FRENTE Y DE ATRÁS */
+.tarjeta-razon .frente {
+    font-weight: bold;
+    color: #b64d79;
+    font-size: 16px;
+}
+
+.tarjeta-razon .detras {
+    display: none;
+    font-size: 14px;
+    color: #75445a;
+    line-height: 1.5;
+}
+
+/* ESTADO CUANDO LA TARJETA ESTÁ ACTIVA (ABIERTA) */
+.tarjeta-razon.activa .frente {
+    display: none;
+}
+
+.tarjeta-razon.activa .detras {
+    display: block;
+    animation: aparecerTexto 0.4s ease;
+}
+
+/* ANIMACIÓN */
+@keyframes aparecerTexto {
+    from { 
+        opacity: 0; 
+        transform: scale(0.95); 
+    }
+    to { 
+        opacity: 1; 
+        transform: scale(1); 
+    }
+}
