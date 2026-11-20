@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nuestra historia de amor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="recuerdo.css">
+    <style>
+        /* ==========================================
+           GALERÍA DE A DOS TARJETAS LADO A LADO (FOTO COMPLETA)
+           ========================================== */
+        .galeria-mini-recuerdos {
+            width: 100% !important;
+            max-width: 540px !important;
+            margin: 34px auto 50px auto !important;
+            padding: 0 12px !important;
+            box-sizing: border-box !important;
+            text-align: center !important;
+        }
+
+        .titulo-galeria-recuerdos {
+            margin: 0 0 6px 0;
+            font-size: 20px;
+            font-weight: 700;
+            color: #9e2a54;
+        }
+
+        .subtitulo-galeria-recuerdos {
+            margin: 0 0 20px 0;
+            font-size: 13px;
+            color: #9c385d;
+        }
+
+        .galeria-mini-recuerdos .grid-mini-recuerdos {
+            display: grid !important;
+            grid-template-columns: repeat(2, minmax(0, 235px)) !important;
+            justify-content: center !important;
+            gap: 18px !important;
+            width: 100% !important;
+        }
+
+        .galeria-mini-recuerdos .tarjeta-mini-recuerdo {
+            position: relative;
+            width: 100% !important;
+            max-width: 235px !important;
+            margin: 0 auto !important;
+            padding: 12px 10px 14px 10px;
+            background: linear-gradient(165deg, #fffafc 0%, #ffe8f1 100%);
+            border: 2px solid #ffa8c6;
+            border-radius: 20px;
+            box-shadow: 0 8px 18px rgba(224, 82, 132, 0.15);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .galeria-mini-recuerdos .tarjeta-mini-recuerdo::before {
+            content: "♡";
+            position: absolute;
+            top: -11px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff8ab0;
+            color: #ffffff;
+            font-size: 11px;
+            line-height: 1;
+            padding: 3px 9px;
+            border-radius: 999px;
+            box-shadow: 0 3px 8px rgba(224, 82, 132, 0.22);
+        }
+
+        .galeria-mini-recuerdos .tarjeta-mini-recuerdo:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 22px rgba(224, 82, 132, 0.24);
+        }
+
+        /* Imagen completa sin cortes y proporcionada */
+        .galeria-mini-recuerdos .img-mini-recuerdo {
+            width: auto !important;
+            max-width: 100% !important;
+            max-height: 165px !important;
+            height: auto !important;
+            object-fit: contain !important;
+            border-radius: 14px;
+            display: block;
+            margin: 0 auto 10px auto;
+            border: 1.5px solid #ffd4e3;
+            background: #fff3f7;
+        }
+
+        .galeria-mini-recuerdos .info-mini-recuerdo {
+            width: 100%;
+            padding: 0 3px;
+        }
+
+        .galeria-mini-recuerdos .mini-titulo {
+            margin: 0 0 6px 0;
+            font-size: 13.5px;
+            font-weight: 700;
+            color: #9e2a54;
+            line-height: 1.3;
+        }
+
+        .galeria-mini-recuerdos .mini-texto {
+            margin: 0;
+            font-size: 12px;
+            line-height: 1.45;
+            color: #782644;
+        }
+
+        @media (max-width: 480px) {
+            .galeria-mini-recuerdos .grid-mini-recuerdos {
+                grid-template-columns: minmax(0, 260px) !important;
+            }
+        }
+
+        /* ==========================================
+           ÚLTIMA CARTA: FELIZ MES, CURSIVA Y COLORES BRILLANTES
+           ========================================== */
+        .ultima-carta-mes {
+            width: 100%;
+            max-width: 460px;
+            margin: 26px auto 55px auto;
+            padding: 0 14px;
+            box-sizing: border-box;
+        }
+
+        .sobre-mes {
+            position: relative;
+            background: linear-gradient(160deg, #fffafd 0%, #ffe6f0 100%);
+            border: 2px solid #ff9ec0;
+            border-radius: 24px;
+            padding: 20px 18px;
+            box-shadow: 0 10px 24px rgba(224, 82, 132, 0.18);
+            cursor: pointer;
+            text-align: center;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            box-sizing: border-box;
+        }
+
+        .sobre-mes:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 28px rgba(224, 82, 132, 0.24);
+        }
+
+        .etiqueta-mes {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff1e7a 0%, #ff5c9d 100%);
+            color: #ffffff;
+            font-size: 12.5px;
+            font-weight: 700;
+            padding: 5px 14px;
+            border-radius: 999px;
+            margin-bottom: 8px;
+            box-shadow: 0 4px 12px rgba(255, 30, 122, 0.35);
+        }
+
+        .ultima-carta-mes .titulo-ultima-carta {
+            margin: 4px 0;
+            font-family: 'Dancing Script', cursive !important;
+            font-size: 30px !important;
+            font-weight: 700 !important;
+            color: #ff1e7a !important;
+            text-shadow: 0 0 10px rgba(255, 30, 122, 0.3), 0 2px 6px rgba(255, 105, 180, 0.35);
+            letter-spacing: 0.5px;
+        }
+
+        .pista-carta {
+            display: block;
+            font-size: 11.5px;
+            color: #b54970;
+        }
+
+        .ultima-carta-mes .cuerpo-ultima-carta {
+            display: none;
+            margin-top: 16px;
+            padding-top: 14px;
+            border-top: 1.5px dashed #ffadc7;
+            font-family: 'Dancing Script', cursive !important;
+            font-size: 21px !important;
+            line-height: 1.5 !important;
+            color: #d6006d !important;
+            text-align: left;
+        }
+
+        .sobre-mes.abierta .cuerpo-ultima-carta {
+            display: block;
+        }
+
+        .ultima-carta-mes .saludo-carta {
+            margin: 0 0 10px 0;
+            font-family: 'Dancing Script', cursive !important;
+            font-size: 25px !important;
+            font-weight: 700 !important;
+            color: #ff006e !important;
+            text-shadow: 0 0 12px rgba(255, 0, 110, 0.35), 0 2px 6px rgba(255, 128, 171, 0.4);
+            text-align: center;
+        }
+
+        .ultima-carta-mes .cuerpo-ultima-carta p {
+            margin: 0 0 10px 0;
+            color: #d4006c !important;
+            text-shadow: 0 0 8px rgba(255, 45, 149, 0.22), 0 1px 4px rgba(255, 130, 180, 0.25);
+        }
+
+        .ultima-carta-mes .firma-carta {
+            display: block;
+            margin-top: 12px;
+            text-align: right;
+            font-family: 'Dancing Script', cursive !important;
+            font-size: 23px !important;
+            font-weight: 700 !important;
+            color: #ff1493 !important;
+            text-shadow: 0 0 10px rgba(255, 20, 147, 0.35), 0 2px 5px rgba(255, 105, 180, 0.35);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tarjeta-inicio">
+        <!-- tarjeta de bienvenida y contador -->
+    </div>
+
+    <main class="tarjeta">
+        <h1>nuestra historia de amor</h1>
+        <p>este es un pequeño recuerdo de nuestro amor, espero que te guste</p>
+
+        <!-- AQUÍ METEMOS EL APARTADO DE LA CANCIÓN -->
+        <div class="seccion-cancion">
+            <p class="titulo-cancion">🎵 Nuestra Canción Especial 🎵</p>
+            <a href="https://www.youtube.com/watch?v=G321HYlJTM4" target="_blank" class="btn-cancion">
+                ▶ Escuchar "Alégale al Umpire"
+            </a>
+        </div>
+
+        <!-- CARTA DESPLEGABLE / EFECTO ACORDEON -->
+        <div class="seccion-carta">
+            <button class="btn-carta" onclick="toggleCarta()">
+                💌 Haz clic para leer mi cartita para ti 💌
+            </button>
+
+            <div id="contenidoCarta" class="contenido-carta">
+                <p>Mi amor, hice esta pequeña página pensando en cada detalle de nosotros. Gracias por cada sonrisa, por cada momento juntos y por ser esa personita tan especial en mi vida. Te amo con alma, loquita. 🤍✨</p>
+            </div>
+        </div>
+
+        <!-- Tu foto y lo demás -->
+        <div class="marco">
+            <img src="fotos/nosotros.jpg" alt="foto">
+            <h2>Para mi princesa sofi 🤍</h2>
+        </div>
+
+        <!-- CONTADOR DE NUESTRO AMOR -->
+        <section class="contador">
+            <p class="subtitulo">Nuestra Historia Comenzó</p>
+            <h2>Juntos desde el 20 de septiembre de 2025</h2>
+
+            <div class="reloj">
+                <div class="tiempo">
+                    <span id="anios">0</span>
+                    <small>Años</small>
+                </div>
+
+                <div class="tiempo">
+                    <span id="meses">0</span>
+                    <small>Meses</small>
+                </div>
+
+                <div class="tiempo">
+                    <span id="días">0</span>
+                    <small>Días</small>
+                </div>
+            </div>
+
+            <div class="reloj">
+                <div class="tiempo">
+                    <span id="horas">0</span>
+                    <small>Horas</small>
+                </div>
+
+                <div class="tiempo">
+                    <span id="minutos">0</span>
+                    <small>Minutos</small>
+                </div>
+
+                <div class="tiempo">
+                    <span id="segundos">0</span>
+                    <small>Segundos</small>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- SECCIÓN: RAZONES POR LAS QUE TE AMO -->
+    <section class="seccion-razones">
+        <h2>Razones por las que te amo 💖</h2>
+        <p class="subtitulo-razones">Haz clic en cada tarjetita para descubrir una razón</p>
+
+        <div class="tarjeta-razon" onclick="this.classList.toggle('activa')">
+            <div class="frente">Razón #1 💌</div>
+            <div class="detras">
+                <div class="caja-foto-texto">
+                    <img src="fotos/nosotros2.jpg" alt="Recuerdo razón 1" class="foto-razon-overlay">
+                    <p class="texto-sobre-foto">Porque ah pesar de todos los problemas que hemos pasado aun sigues creyendo en nuestra relacion y hogar.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tarjeta-razon" onclick="this.classList.toggle('activa')">
+            <div class="frente">Razón #2 ✨</div>
+            <div class="detras">
+                <div class="caja-foto-texto">
+                    <img src="fotos/nosotros3.jpg" alt="Recuerdo razón 2" class="foto-razon-overlay">
+                    <p class="texto-sobre-foto">Por todo lo lindo que haces por mi y por querer cambiar aun sabiendo que es muy dificil para ti hacerlo.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tarjeta-razon" onclick="this.classList.toggle('activa')">
+            <div class="frente">Razón #3 🌸</div>
+            <div class="detras">
+                <div class="caja-foto-texto">
+                    <img src="fotos/nosotros4.jpg" alt="Recuerdo razón 3" class="foto-razon-overlay">
+                    <p class="texto-sobre-foto">Porque eres mi paz en los días difíciles, porque me das mucha feliciad y me motivas a seguir alenate.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tarjeta-razon" onclick="this.classList.toggle('activa')">
+            <div class="frente">Razón #4 🌻</div>
+            <div class="detras">
+                <div class="caja-foto-texto">
+                    <img src="fotos/nosotros5.jpg" alt="Recuerdo razón 4" class="foto-razon-overlay">
+                    <p class="texto-sobre-foto">Porque fuiste la unica persona que me trato y me hizo sentir como nunca antes alguien me habia hecho sentir.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tarjeta-razon" onclick="this.classList.toggle('activa')">
+            <div class="frente">Razón #5 😍</div>
+            <div class="detras">
+                <div class="caja-foto-texto">
+                    <img src="fotos/nosotros6.jpg" alt="Recuerdo razón 5" class="foto-razon-overlay">
+                    <p class="texto-sobre-foto">Porque gracias a ti me di cuenta que es el verdadero amor y lo valioso que es estar a tu lado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOTO CON MARCO Y ESQUINAS DE HELLO KITTY -->
+    <div class="foto-extra-container">
+        <div class="marco-hk">
+            <!-- Esquinas de Hello Kitty -->
+            <img src="fotos/hk-esquina.jpg" alt="" class="esquina-hk esquina-sup-izq">
+            <img src="fotos/hk-esquina.jpg" alt="" class="esquina-hk esquina-sup-der">
+            <img src="fotos/hk-esquina.jpg" alt="" class="esquina-hk esquina-inf-izq">
+            <img src="fotos/hk-esquina.jpg" alt="" class="esquina-hk esquina-inf-der">
+
+            <!-- Foto principal de la sección -->
+            <img src="fotos/nosotros2.jpg" alt="Un momento más juntos" class="foto-hk-principal">
+            <p class="pie-foto-extra">Cada momento contigo es mi favorito 🤍
+                gracias a ti eh aprendido mucho
+            </p>
+        </div>
+    </div>
+
+    <!-- RULETA DE "SÍ" Y "NO" QUE SIEMPRE CAE EN "SÍ" -->
+    <section class="seccion-ruleta-si">
+        <h3 class="titulo-ruleta">🎡 Tengo una pregunta para ti...</h3>
+        <p class="pregunta-ruleta">¿Quieres seguir escribiendo nuestra historia juntos para toda la vida? 🤍</p>
+
+        <div class="ruleta-wrapper">
+            <div class="flecha-ruleta">▼</div>
+            <div class="ruleta-disco-sino" id="ruletaDisco">
+                <span class="opcion-ruleta op-arriba">SÍ 💗</span>
+                <span class="opcion-ruleta op-derecha">NO 🙈</span>
+                <span class="opcion-ruleta op-abajo">SÍ ✨</span>
+                <span class="opcion-ruleta op-izquierda">NO 😅</span>
+                <div class="ruleta-centro">¿?</div>
+            </div>
+        </div>
+
+        <button type="button" class="btn-girar-ruleta" id="btnGirarRuleta">Girar la ruleta ✨</button>
+        <p class="resultado-ruleta" id="resultadoRuleta"></p>
+    </section>
+
+    <!-- GALERÍA DE MINI RECUERDOS ORDENADA -->
+    <section class="galeria-mini-recuerdos">
+        <h3 class="titulo-galeria-recuerdos">📸 Nuestros mini recuerdos</h3>
+        <p class="subtitulo-galeria-recuerdos">Momentos especiales que guardo en mi corazón</p>
+
+        <div class="grid-mini-recuerdos">
+            <article class="tarjeta-mini-recuerdo">
+                <img src="fotos/diciembre.jpg" alt="Nuestra primera navidad juntos" class="img-mini-recuerdo">
+                <div class="info-mini-recuerdo">
+                    <h4 class="mini-titulo">Nuestra primera navidad juntos.💖</h4>
+                    <p class="mini-texto">Es un lindo recuerdo de nuestra primera navidad juntos, fue un dia muy especial y espero que esta lo sea aun mas te amo mi loquita.</p>
+                </div>
+            </article>
+
+            <article class="tarjeta-mini-recuerdo">
+                <img src="fotos/hallowen.jpg" alt="Nuestro primer halloween juntos" class="img-mini-recuerdo">
+                <div class="info-mini-recuerdo">
+                    <h4 class="mini-titulo">Nuestro primer hallowen juntos 👻.</h4>
+                    <p class="mini-texto">Este dia la pasamos super chevere disfrutamos mucho de esa carabana.</p>
+                </div>
+            </article>
+
+            <article class="tarjeta-mini-recuerdo">
+                <img src="fotos/pinturas.jpg" alt="El día de las pinturas" class="img-mini-recuerdo">
+                <div class="info-mini-recuerdo">
+                    <h4 class="mini-titulo">El dia que me invitaste a las pinturas 💑.</h4>
+                    <p class="mini-texto">Ese dia fue super especial,disfrutamos, nos reimos, pintamos y comimos. Ese dia disfrutamos mucho y fue lleno de amor.</p>
+                </div>
+            </article>
+
+            <article class="tarjeta-mini-recuerdo">
+                <img src="fotos/pantera.jpg" alt="Primer día en Pantera" class="img-mini-recuerdo">
+                <div class="info-mini-recuerdo">
+                    <h4 class="mini-titulo">Este fue el primer dia que me llevaste a pantera 🧑‍❤️‍🧑.</h4>
+                    <p class="mini-texto">Ese dia tenia mucha pena ya que nunca habia ido a ningun lugar tan costoso jsjsj.</p>
+                </div>
+            </article>
+
+            <article class="tarjeta-mini-recuerdo">
+                <img src="fotos/paseocabañas.jpg" alt="Primer paseo a las cabañitas" class="img-mini-recuerdo">
+                <div class="info-mini-recuerdo">
+                    <h4 class="mini-titulo">El primer paseo al que te lleve 🏡.</h4>
+                    <p class="mini-texto">Recuerdo que ese dia me toco hacer un esfuerzo un poco grande para llevarte a las cabañitas.</p>
+                </div>
+            </article>
+
+            <article class="tarjeta-mini-recuerdo">
+                <img src="fotos/krater2.jpg" alt="Parque del Café" class="img-mini-recuerdo">
+                <div class="info-mini-recuerdo">
+                    <h4 class="mini-titulo">Nuestro paseito a el parque de el cafe 🎢.</h4>
+                    <p class="mini-texto">Ese dia la pasamos super chevere en todas las atracciones, aunque me dio un poco de malgenio la espera de el almuerzo.</p>
+                </div>
+            </article>
+
+            <article class="tarjeta-mini-recuerdo">
+                <img src="fotos/paseo3.jpg" alt="Paseo Lago Calima" class="img-mini-recuerdo">
+                <div class="info-mini-recuerdo">
+                    <h4 class="mini-titulo">Paseo lago calima 🚤.</h4>
+                    <p class="mini-texto">El paseo con tu familia uno de los mejores recuerdos de mi vida, recuerdo como me trataron de bien y me acogieron.</p>
+                </div>
+            </article>
+
+            <article class="tarjeta-mini-recuerdo">
+                <img src="fotos/nosotros5.jpg" alt="El día que nos fuimos a Cali" class="img-mini-recuerdo">
+                <div class="info-mini-recuerdo">
+                    <h4 class="mini-titulo">El dia que nos fuimos a cali 🏙️.</h4>
+                    <p class="mini-texto">Recuerdo que esa semana no estabamos tan contentos y teniamos aun muchos problemas por lo que habia pasado dias antes pero la pasamos super bien.</p>
+                </div>
+            </article>
+
+            <article class="tarjeta-mini-recuerdo">
+                <img src="fotos/cumpleañosalejo.jpg" alt="Un hermoso recuerdo de primer cumple mío" class="img-mini-recuerdo">
+                <div class="info-mini-recuerdo">
+                    <h4 class="mini-titulo">Un hermoso recuerdo de primer cumple mío 🎂.</h4>
+                    <p class="mini-texto">Recuerdo que fue el primer cumpleaños que me celebraste, fue un dia muy especial y hermoso para mi ya que nunca nadie había hecho algo así por mi .</p>
+                </div>
+            </article>
+
+            <article class="tarjeta-mini-recuerdo">
+                <img src="fotos/cumpleañosalejo2.jpg" alt="Recuerdo mi segundo cumpleaños celebrado por ti" class="img-mini-recuerdo">
+                <div class="info-mini-recuerdo">
+                    <h4 class="mini-titulo">Recuerdo mi segundo cumleaños celebrado por ti 🥳.</h4>
+                    <p class="mini-texto">Otro hersmoso recuerdo que ah pesar de los problemas y cosas malas que pasaron ese dia, agradezco a Dios por regalarme la dicha de estar con una mujer tan buena como lo eres tu.</p>
+                </div>
+            </article>
+
+            <article class="tarjeta-mini-recuerdo">
+                <img src="fotos/concierto.jpg" alt="Nuestro concierto" class="img-mini-recuerdo">
+                <div class="info-mini-recuerdo">
+                    <h4 class="mini-titulo">Nuestro concierto 🎶.</h4>
+                    <p class="mini-texto">Recuerdo como la pasamos de bien ese dia, fue un dia bonito y especial junto a la mujer que amo.</p>
+                </div>
+            </article>
+
+            <article class="tarjeta-mini-recuerdo">
+                <img src="fotos/pantera2.jpg" alt="Este dia recuerdo que fue el cumple de tu mamá" class="img-mini-recuerdo">
+                <div class="info-mini-recuerdo">
+                    <h4 class="mini-titulo">Este dia recuerdo que fue el cumple de tu mamá 🍽️.</h4>
+                    <p class="mini-texto">Bien contento de pasar tiempo con mi familia, y tiempo de calidad junto a la mujer que amo.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- ÚLTIMA CARTA: FELIZ MES Y AGRADECIMIENTO -->
+    <section class="ultima-carta-mes">
+        <div class="sobre-mes" onclick="this.classList.toggle('abierta')">
+            <div class="cabecera-mes">
+                <span class="etiqueta-mes">💖 ¡Feliz mes, mi amor! 💖</span>
+                <h3 class="titulo-ultima-carta">Una última carta para ti</h3>
+                <small class="pista-carta">Toca aquí para abrirla o cerrarla ✨</small>
+            </div>
+
+            <div class="cuerpo-ultima-carta">
+                <p class="saludo-carta">¡Feliz mes hoy, mi amor! 🤍</p>
+                <p>
+                    Hoy quiero decirte ¡feliz mes! y agradecerte de todo corazón por todo el tiempo que has estado conmigo,
+                    por acompañarme en cada etapa y por cada una de las cosas tan lindas que has hecho por mí.
+                </p>
+                <p>
+                    Gracias por tus detalles, por tu cariño y por cada momento bonito que hemos compartido. Celebrar un mes más
+                    a tu lado me llena el alma de alegría y de ganas de seguir construyendo nuestra historia juntos. Te amo mucho. 🌸✨
+                </p>
+                <span class="firma-carta">Con todo mi amor, para ti 🤍</span>
+            </div>
+        </div>
+    </section>
+
+    <script src="./script.js"></script>
+    <script>
+    (function () {
+        const disco = document.getElementById("ruletaDisco");
+        const boton = document.getElementById("btnGirarRuleta");
+        const resultado = document.getElementById("resultadoRuleta");
+
+        if (!disco || !boton || !resultado) return;
+
+        let anguloActual = 0;
+        let girando = false;
+
+        const mensajesSi = [
+            "¡SÍ! La ruleta lo decidió: ¡SÍ para toda la vida! 🤍✨",
+            "¡SÍ! Ni la ruleta acepta un no contigo 💗",
+            "¡SÍ! Mil veces sí, hoy y siempre 🌸"
+        ];
+
+        boton.addEventListener("click", function () {
+            if (girando) return;
+            girando = true;
+            resultado.textContent = "Girando...";
+
+            const posicionesSi = [0, 180];
+            const anguloObjetivoSi = posicionesSi[Math.floor(Math.random() * posicionesSi.length)];
+
+            const vueltas = 360 * 5;
+            const residuoActual = ((anguloActual % 360) + 360) % 360;
+            const diferencia = ((anguloObjetivoSi - residuoActual) + 360) % 360;
+
+            anguloActual += vueltas + diferencia;
+            disco.style.transform = `rotate(${anguloActual}deg)`;
+
+            setTimeout(() => {
+                const frase = mensajesSi[Math.floor(Math.random() * mensajesSi.length)];
+                resultado.textContent = frase;
+                girando = false;
+            }, 2600);
+        });
+    })();
+    </script>
+</body>
+</html>
